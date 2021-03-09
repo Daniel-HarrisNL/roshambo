@@ -81,21 +81,53 @@ tr:nth-child(odd) {
 }
 
 .game-modes{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+}
+.button-wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        background-color: red;
+}
+
+.btn-game{
+        font-size: 18px;
+        font-weight: bold;
+        margin: 32px 12px 4px 12px;
+        border-radius: 42px;
+        border-color: rgb(53, 53, 83);
+        padding: 12px 32px;
+        color: rgb(203, 209, 211);
+        background-color: rgb(21, 31, 51);
+        box-shadow: -2px 3px 6px #4b5554;
 
 }
 
-.tournament{
-
+.table-wrapper{
+        
 }
 
-.one-on-one{
-
-}
-
-.table-results{
-
-}
-
-.footer{
-
+.footer {
+  display: flex;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 128px;
+  margin-top: 4em;
+  background-color: rgb(24, 26, 32);
+  color: white;
+  text-align: center;
+  border: 4px solid rgb(83, 88, 99);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
 }

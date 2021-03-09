@@ -45,7 +45,7 @@
                                 <p>By submitting, you agree that your function abides by all the stated guidelines. If upon review we find that your function does not adhere to the guidelines stated, your request for entry may be denied without notice. Consequences may occur for severe infractions to the guidelines.</p>
                                 <p>We reserve full rights to the code which you submit to be published to this site, and may do with it as we wish. This includes but is not limited to: editing, deleting and/or disclosing of the code source to both internal and external parties.</p>
                                 <p>We will never intentionally share your name, e-mail or other related sensitive data to anybody without notice and consent. This information will be used strictly for internal security and identity verification only.</p>
-                                <p>The entirety of this project is declared to be licensed under the <a href="https://mit-license.org/" target="_blank" rel="noopener noreferrer">MIT License</a> agreement. To see the license follow the link provided.</p>
+                                <p>The entirety of this project (including the community submissions included within this project) is declared to be licensed under the <a href="https://mit-license.org/" target="_blank" rel="noopener noreferrer">MIT License</a> agreement. To see the most recent version of the license please follow the link provided.</p>
                                 <h3>How to enter:</h3> 
                                 <p>To enter your bot into the competition, paste your raw-text function into a text file and send it with the subject line, 'AI Competition - [Your bot name here]' to the following e-mail: <a href="#!">Daniel.Harris@keyin.com</a></p>
                         </div>
@@ -54,7 +54,7 @@
                 <div class="container">
                         <div class="text-wrapper">
                                 <h3>See all the participating contenders, in the table below:</h3>
-                                <div class="table-participants-wrapper">
+                                <div class="table-wrapper">
                                         <table class="participants-table">
                                                 <tr>
                                                         <td><strong>dummy-Bot</strong></td>
@@ -62,7 +62,7 @@
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
-                                                        <td><em>Vacant</em></td>
+                                                        
                                                 </tr>
                                                 <tr>
                                                         <td><strong>beginner-Bot</strong></td>
@@ -70,7 +70,7 @@
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
-                                                        <td><em>Vacant</em></td>
+                                                       
                                                 </tr>
                                                 <tr>
                                                         <td><strong>adept-Bot</strong></td>
@@ -78,7 +78,7 @@
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
-                                                        <td><em>Vacant</em></td>
+                                                        
                                                 </tr>
                                                 <tr>
                                                         <td><em>Vacant</em></td>
@@ -86,7 +86,7 @@
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
-                                                        <td><em>Vacant</em></td>
+                                                        
                                                 </tr>
                                                 <tr>
                                                         <td><em>Vacant</em></td>
@@ -94,7 +94,7 @@
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
                                                         <td><em>Vacant</em></td>
-                                                        <td><em>Vacant</em></td>
+                                                        
                                                 </tr>
                                                 
                                         </table>
@@ -104,15 +104,79 @@
                 </div>
                 <hr>
                 <div class="container">
-                        <button type="button" class="btn-game" id="tournament"></button>
-                        <button type="button" class="btn-game" id="one-v-one"></button>
+                        <div class="game-modes">
+                                <div class="btn-wrapper">
+                                        <button type="button" class="btn-game" id="tournament">Tournament</button>
+                                        <button type="button" class="btn-game" id="one-v-one">One-versus-one*</button>
+                                </div>
+                                <p><em>Note*: One-versus-one game mode is a planned feature that is not implemented currently, check back later!</em></p>
+                        </div>
+                        
                 </div>
-                <div class="table-results">
+                <hr id="results-divider" style="display:none;">
+                <div class="container" id="results" style="display:none;">
+                        <div class="text-wrapper">
+                                <h3>Here are the results of the tournament:</h3>
+                                <div class="table-wrapper">
+                                        <table class="participants-table">
+                                                <tr>
+                                                        <th>Placement</th>
+                                                        <th>Best Win % Against</th>
+                                                        <th>Worst Win % Against</th>
 
+                                                </tr>
+                                                <tr>
+                                                        <td><strong>1st: dummy-Bot</strong></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td><strong>2nd: beginner-Bot</strong></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                       
+                                                </tr>
+                                                <tr>
+                                                        <td><strong>3rd: adept-Bot</strong></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        
+                                                </tr>
+                                                <tr>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        <td><em>Undefined</em></td>
+                                                        
+                                                </tr>
+                                                
+                                        </table>
+                                </div>
+                        </div>
                 </div>
-                <div class="footer">
+                
 
-                </div>
+        </div>
+        <div class="footer">
 
         </div>
 </body>
