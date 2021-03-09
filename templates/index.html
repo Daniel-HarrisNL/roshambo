@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" type="text/css" href="static/style.css" media="screen"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="/static/index.js"></script>
+</head>
+<body>
+        <div class="flex-container">
+                <!-- <div class="header-wrapper"> -->
+                        <div class="header"></div>
+                        <hr>
+                <!-- </div> -->
+                <div class="container">
+                        <div class="text-wrapper">
+                                <p>This is a web competition-simulator, where user-programmed AI bots compete for the title of: 'The World's Best Rock-Paper-Scissors AI Bot'!</p>
+                        
+                                <h3>How it works:</h3>
+                                <p>User-created bot's will play 10,000 games each against every other bot currently entered into the competition. The win percent of each bot will be displayed in the result tables, along with the opponent bot that it fared the best against, as well as the worst. </p>
+                                <p>The bot with the highest overall win percentage will be declared the champion and earn the title of: 'The World's Best Rock-Paper-Scissors AI Bot' (results may vary between each execution of the program, so if you win, enjoy it while it lasts).</p>
+                        
+                                <p>You may create your very own AI bot for the competition by writing a JavaScript function that follows the guidelines below:</p>
+                                <div class="table-rules-wrapper">
+                                        <ul>
+                                                <li>The function must be named after your team name.</li>
+                                                <li>The function/team must not have the same name as another entry (check the table of contenders to make sure).</li>
+                                                <li>The function/team name must not be offensive in any regard.</li>
+                                                <li>The function/team name must be of a reasonable character length (no specific character limit to allow for name creativity, but just refrain from unnecessary characters).</li>
+                                                <li>The function/team name must start with an alphabetical character and must not contain any illegal characters (improperly named functions/teams will be submitted with the resulting name after illegal characters are removed, assuming it then still abides by other naming rules).</li>
+                                                <li>The function must accept only 1 paramater (which is the previous result which the oponent returned, see return structure below).</li>
+                                                <li>The function must be prepared for the input parameter to be null during the first call/game.</li>
+                                                <li>The function must not access any external elements (by using DOM selectors or any other method).</li>
+                                                <li>The function must be commented where necessary (no un-explained black magic).</li>
+                                                <li>If the function uses local/session storage it must store all data under one key, which must be the function's name (you may store separate data in the form of nested lists/arrays or any other means that doesn't violate this rule).</li>
+                                                <li>The function must return it's action choice in the form of a string, for consistency it must be an identical case-sensitive match to one of the following options: 'rock', 'paper', 'scissors'.</li>
+                                                <li>The function must not attempt any malicious behaviour, any submissions believed to make such an attempt will be rejected and the user permanently blacklisted from re-submitting.</li>
+                                        </ul>
+                                </div>
+                                <p>If you intend to submit an updated version of your bot you may either send it from the original e-mail used to submit the bot, or on the first line of the e-mail state a piece of identifying proof of ownership of the team/bot.</p>
+                                <p>By submitting, you agree that your function abides by all the stated guidelines. If upon review we find that your function does not appear to adhere to the guidelines stated, your request for entry may be denied without notice. Consequences may occur for severe infractions to the guidelines.</p>
+                                <p>We reserve full rights to the code which you submit to be published to this site, and may do with it as we wish. This includes but is not limited to: editing, deleting and/or disclosing of the code source to both internal and external parties.</p>
+                                <p>The previous statement does not include agreement to sensitive personal data. We will never share your name, e-mail or other related data to anybody without notice and consent.</p> 
+                                <p>To enter your bot into the competition, paste your raw-text function into a text file and send it with the subject line, 'AI Competition - [Your bot name here]' to the following e-mail: <a href="#!">Daniel.Harris@keyin.com</a></p>
+                        </div>
+                </div>
+                <hr>
+                <div class="container">
+                        <div class="text-wrapper">
+                                <h3>See all the participating contenders, in the table below:</h3>
+                                <div class="table-participants-wrapper">
+                                        <table class="participants-table">
+                                                <tr>
+                                                        <td><strong>dummy-Bot</strong></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><strong>beginner-Bot</strong></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><strong>adept-Bot</strong></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                </tr>
+                                                <tr>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                        <td><em>Vacant</em></td>
+                                                </tr>
+                                                
+                                        </table>
+                                </div>
+                        </div>
+
+                </div>
+                <hr>
+                <div class="container">
+                        <button type="button" class="btn-game" id="tournament"></button>
+                        <button type="button" class="btn-game" id="one-v-one"></button>
+                </div>
+                <div class="table-results">
+
+                </div>
+                <div class="footer">
+
+                </div>
+
+        </div>
+</body>
+</html>
