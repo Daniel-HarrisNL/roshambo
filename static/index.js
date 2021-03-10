@@ -1,6 +1,6 @@
 function main(){
         let tournament_contenders = ["dummyBot","beginnerBot","adeptBot"];
-        let function_array = parseFunctions(tournament_contenders);
+        
         let tournament_button = document.querySelector("#tournament");
         tournament_button.addEventListener("click", function(event){
                 event.preventDefault();
@@ -19,61 +19,45 @@ function playTournament(tournament_contenders){
         for(let i = 0; i < tournament_contenders.length; i++){
                 let result_pair = [];
                 for(let j = i+1; j < tournament_contenders.length; j++){
-                        let win_data = runGames(tournament_contenders, i, j, num_games);
+                        let win_data = runGames(tournament_contenders[i], tournament_contenders[j], num_games);
                         result_pair = [tournament_contenders[i], win_data[0], tournament_contenders[j], win_data[1]];
                         results.push(result_pair);       
                 }
         }
         return results;
 }
-function parseFunctions(tournament_contenders){
-        let function_array_parsed = [];
-        let dummyBot = new Function('previous',`return "rock";`);
-        let beginnerBot = new Function('previous',`let choice = Math.random();
-        let return_move = "";
-        if (choice < 0.3){
-                return_move = "rock";
-        }
-        else if (choice < 0.6){
-                return_move = "paper";
-        }
-        else{
-                return_move = "scissors";
-        }
 
-        return return_move;`);
-        let adeptBot = new Function('previous',`let choice = Math.random();
-        let return_move = "";
-        if (previous=="rock"){
-             return_move = (choice < 0.5) ? "rock" : "scissors";   
-        }
-        else if (previous=="scissors"){
-                return_move = (choice < 0.5) ? "paper" : "scissors";  
-        }
-        else if (previous=="paper"){
-                return_move = (choice < 0.5) ? "rock" : "paper";  
-        }
-        else{
-                return_move = "scissors";
-        }
-        return return_move;`);
 
-        function_array_parsed.push(dummyBot);
-        function_array_parsed.push(beginnerBot);
-        function_array_parsed.push(adeptBot);
-
-        return function_array_parsed;
-}
-
-function runGames(function_array, i, j, games){
+function runGames(func1, func2, games){
         let choice_1 = "";
         let choice_2 = "";
         let wins_1 = 0;
         let wins_2 = 0;
         let game_outcome = -1;
         //First game
-        choice_1 = dummyBot("");//function_array[i]("");
-        choice_2 = adeptBot("");//function_array[j]("");
+        switch(func1){
+                case "dummyBot":
+                        choice_1=dummyBot("");
+                        break;
+                case "beginnerBot":
+                        choice_1=beginnerBot("");
+                        break;
+                case "adeptBot":
+                        choice_1=adeptBot("");
+                        break;
+        }
+        switch(func2){
+                case "dummyBot":
+                        choice_2=dummyBot("");
+                        break;
+                case "beginnerBot":
+                        choice_2=beginnerBot("");
+                        break;
+                case "adeptBot":
+                        choice_2=adeptBot("");
+                        break;
+        }
+       
 
         game_outcome = getWinner(choice_1, choice_2);
                 if (game_outcome==1){
@@ -85,8 +69,32 @@ function runGames(function_array, i, j, games){
          
         //Remaining games
         for (let i = 0; i < games; i++){
-                choice_1 = dummyBot(choice_2);//(function_array[i])(choice_2);
-                choice_2 = adeptBot(choice_1);//(function_array[j])(choice_1);
+                choice_2_old = choice_2;
+                choice_1_old = choice_1;
+                switch(func1){
+                        case "dummyBot":
+                                choice_1=dummyBot(choice_2_old);
+                                break;
+                        case "beginnerBot":
+                                choice_1=beginnerBot(choice_2_old);
+                                break;
+                        case "adeptBot":
+                                choice_1=adeptBot(choice_2_old);
+                                break;
+                }
+                switch(func2){
+                        case "dummyBot":
+                                choice_2=dummyBot(choice_1_old);
+                                break;
+                        case "beginnerBot":
+                                choice_2=beginnerBot(choice_1_old);
+                                break;
+                        case "adeptBot":
+                                choice_2=adeptBot(choice_1_old);
+                                break;
+                }
+                
+                
 
                 game_outcome = getWinner(choice_1, choice_2);
                 if (game_outcome==1){
@@ -177,18 +185,11 @@ function displayResults(results,tournament_contenders){
                 let item_data_processed = JSON.parse(sessionStorage.getItem(item));
                 let final_wins = item_data_processed[0];
                 let final_losses = item_data_processed[1];
-                let win_percent = (final_wins / (final_wins + final_losses)) * 100;
+                let win_percent = ((final_wins / (final_wins + final_losses)) * 100).toFixed(2);
                 let win_percent_string = `Win Percent: ${win_percent}%`;
                 let formatted_string = `${item} - ${win_percent_string}`;
                 let result_table = document.querySelector('#result-table-data');
-                //let td_list = result_container.querySelectorAll("[id^='e']");
-                //let next_box = td_list[0];
-                //let i = 0;
-                //while(td_list[i].id != "[id^='e']"){
-                //        next_box = td_list[i+1];
-                //        i++;
-                //}
-                //td_list[i].id = `next-box${i}`;
+                
                 let next_box = document.createElement("TR");
                 next_box.innerHTML =`<td><strong>${formatted_string}</strong></td><td></td><td></td>`;
                 result_table.appendChild(next_box);
