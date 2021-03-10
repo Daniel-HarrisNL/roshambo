@@ -200,6 +200,11 @@ function displayResults(results,tournament_contenders){
                 let result_table = document.querySelector('#result-table-data');
                 
                 let next_box = document.createElement("TR");
+                let remove_old = document.querySelector(`#td-${item}`);
+                if (typeof(remove_old) != 'undefined' && remove_old != null){
+                        remove_old.remove();
+                }
+                next_box.id = `td-${item}`;
                 next_box.innerHTML =`<td><strong>${formatted_string}</strong></td><td></td><td></td>`;
                 result_table.appendChild(next_box);
         });
