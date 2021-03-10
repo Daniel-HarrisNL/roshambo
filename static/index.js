@@ -29,14 +29,7 @@ function playTournament(tournament_contenders){
 
 
 function runGames(func1, func2, games){
-        // Log the overall game count
-        let game_count = 0;
-        if (sessionStorage.getItem(`games`)){
-                game_count = JSON.parse(sessionStorage.getItem(`games`));
-        }
-        game_count = game_count + games;
-        sessionStorage.setItem(`games`, JSON.stringify(game_count));
-        console.log(game_count);
+        
 
         let choice_1 = "";
         let choice_2 = "";
@@ -69,15 +62,23 @@ function runGames(func1, func2, games){
        
 
         game_outcome = getWinner(choice_1, choice_2);
-                if (game_outcome==1){
-                        wins_1 += 1
-                }
-                else if (game_outcome==2){
-                        wins_2 += 1
-                }
-         
+        if (game_outcome==1){
+                wins_1 += 1
+        }
+        else if (game_outcome==2){
+                wins_2 += 1
+        }
+        let game_count = 0;
         //Remaining games
         for (let i = 0; i < games; i++){
+                // Log the overall game count
+                
+                if (sessionStorage.getItem(`games`)){
+                        game_count = JSON.parse(sessionStorage.getItem(`games`));
+                }
+                game_count = game_count + 1;
+                sessionStorage.setItem(`games`, JSON.stringify(game_count));
+                
                 choice_2_old = choice_2;
                 choice_1_old = choice_1;
                 switch(func1){
@@ -113,6 +114,7 @@ function runGames(func1, func2, games){
                         wins_2 += 1
                 }
         }
+        console.log(game_count);
         return [wins_1, wins_2];
 }
 
