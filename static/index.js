@@ -29,6 +29,15 @@ function playTournament(tournament_contenders){
 
 
 function runGames(func1, func2, games){
+        // Log the overall game count
+        let game_count = 0;
+        if (sessionStorage.getItem(`games`)){
+                game_count = JSON.parse(sessionStorage.getItem(`games`));
+        }
+        game_count = game_count + games;
+        sessionStorage.setItem(`games`, JSON.stringify(game_count));
+        console.log(game_count);
+
         let choice_1 = "";
         let choice_2 = "";
         let wins_1 = 0;
