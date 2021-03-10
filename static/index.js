@@ -4,13 +4,13 @@ function main(){
         let tournament_button = document.querySelector("#tournament");
         tournament_button.addEventListener("click", function(event){
                 event.preventDefault();
-                let game_results = playTournament(function_array, tournament_contenders);
+                let game_results = playTournament(tournament_contenders);
                 displayResults(game_results,tournament_contenders);
                 sessionStorage.clear();
         });  
 }
 
-function playTournament(function_array, tournament_contenders){
+function playTournament(tournament_contenders){
         let results = [];
         //Each bot will play a total number of 10,000 games against each opponent bot. Two sets of 5K.
         let num_games = 10000;
@@ -19,7 +19,7 @@ function playTournament(function_array, tournament_contenders){
         for(let i = 0; i < tournament_contenders.length; i++){
                 let result_pair = [];
                 for(let j = i+1; j < tournament_contenders.length; j++){
-                        let win_data = runGames(function_array, i, j, num_games);
+                        let win_data = runGames(tournament_contenders, i, j, num_games);
                         result_pair = [tournament_contenders[i], win_data[0], tournament_contenders[j], win_data[1]];
                         results.push(result_pair);       
                 }
@@ -72,8 +72,8 @@ function runGames(function_array, i, j, games){
         let wins_2 = 0;
         let game_outcome = -1;
         //First game
-        choice_1 = function_array[i]("");
-        choice_2 = function_array[j]("");
+        choice_1 = dummyBot("");//function_array[i]("");
+        choice_2 = adeptBot("");//function_array[j]("");
 
         game_outcome = getWinner(choice_1, choice_2);
                 if (game_outcome==1){
@@ -85,8 +85,8 @@ function runGames(function_array, i, j, games){
          
         //Remaining games
         for (let i = 0; i < games; i++){
-                choice_1 = (function_array[i])(choice_2);
-                choice_2 = (function_array[j])(choice_1);
+                choice_1 = dummyBot(choice_2);//(function_array[i])(choice_2);
+                choice_2 = adeptBot(choice_1);//(function_array[j])(choice_1);
 
                 game_outcome = getWinner(choice_1, choice_2);
                 if (game_outcome==1){
@@ -141,8 +141,8 @@ function displayResults(results,tournament_contenders){
                         let item_data = [];
                         let wins = 0;
                         let losses = 0;
-                        if (sessionStorage.getItem(item)){
-                                item_data = JSON.parse(sessionStorage.getItem(item));
+                        if (sessionStorage.getItem(`${item}`)){
+                                item_data = JSON.parse(sessionStorage.getItem(`${item}`));
                                 wins = item_data[0];
                                 losses = item_data[1];
                         }
@@ -160,7 +160,7 @@ function displayResults(results,tournament_contenders){
                                 losses = losses + results[i][3];
                                 item_data[0] = wins;
                                 item_data[1] = losses;
-                                sessionStorage.setItem(item, JSON.stringify(item_data));
+                                sessionStorage.setItem(`${item}`, JSON.stringify(item_data));
                         }
                         else if (results[i][2] == item){
                                 wins = wins + results[i][3];
@@ -170,7 +170,7 @@ function displayResults(results,tournament_contenders){
                                 losses = losses + results[i][1];
                                 item_data[0] = wins;
                                 item_data[1] = losses;
-                                sessionStorage.setItem(item, JSON.stringify(item_data));
+                                sessionStorage.setItem(`${item}`, JSON.stringify(item_data));
                         }
                 }
                 //Outside of results iteration, counting is done for this item.
@@ -180,14 +180,18 @@ function displayResults(results,tournament_contenders){
                 let win_percent = (final_wins / (final_wins + final_losses)) * 100;
                 let win_percent_string = `Win Percent: ${win_percent}%`;
                 let formatted_string = `${item} - ${win_percent_string}`;
-                let td_list = result_container.querySelectorAll("td");
-                let next_box = td_list[0];
-                let i = 0;
-                while(td_list[i].id){
-                        next_box = td_list[i+1];
-                        i++;
-                }
-                next_box.innerHTML =`<strong>${formatted_string}</strong>`;
+                let result_table = document.querySelector('#result-table-data');
+                //let td_list = result_container.querySelectorAll("[id^='e']");
+                //let next_box = td_list[0];
+                //let i = 0;
+                //while(td_list[i].id != "[id^='e']"){
+                //        next_box = td_list[i+1];
+                //        i++;
+                //}
+                //td_list[i].id = `next-box${i}`;
+                let next_box = document.createElement("TR");
+                next_box.innerHTML =`<td><strong>${formatted_string}</strong></td><td></td><td></td>`;
+                result_table.appendChild(next_box);
         });
         result_container.style.display = "block";
 }
