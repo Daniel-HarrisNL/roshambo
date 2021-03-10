@@ -113,12 +113,14 @@ tr:nth-child(odd) {
 }
 
 .table-wrapper{
-        
+        width: auto;        
 }
 
 .footer {
   display: flex;
   width: 100%;
+  justify-content: center;
+  align-items: center;
   left: 0;
   bottom: 0;
   height: 128px;
