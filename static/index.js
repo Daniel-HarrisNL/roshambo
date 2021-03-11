@@ -1,6 +1,8 @@
 function main(){
+        // Array of all bot-names entered.
         let tournament_contenders = ["Balboa-Bot","Easy-Bot","Wacky-Bot"];
         
+        //Event listener to run the tournament
         let tournament_button = document.querySelector("#tournament");
         tournament_button.addEventListener("click", function(event){
                 event.preventDefault();
@@ -15,7 +17,7 @@ function playTournament(tournament_contenders){
         //Each bot will play a total number of 10,000 games against each opponent bot. Two sets of 5K.
         let num_games = 10000;
         //The nested for loops allow each function to play every function that comes after it, this prevents double matchups.
-        //Example: Func_X vs. Func_Y, then Func_Y vs. Func_X later.
+        //Example: Func_X vs. Func_Y, then Func_Y vs. Func_X later, is prevented.
         for(let i = 0; i < tournament_contenders.length; i++){
                 let result_pair = [];
                 for(let j = i+1; j < tournament_contenders.length; j++){
@@ -29,13 +31,13 @@ function playTournament(tournament_contenders){
 
 
 function runGames(func1, func2, games){
-        
-
+        //Init vars
         let choice_1 = "";
         let choice_2 = "";
         let wins_1 = 0;
         let wins_2 = 0;
         let game_outcome = -1;
+
         //First game
         switch(func1){
                 case "Balboa-Bot":
@@ -59,8 +61,7 @@ function runGames(func1, func2, games){
                         choice_2=wackyBot("");
                         break;
         }
-       
-
+        //Use getWinner to process the choices from the bots to determine who won.
         game_outcome = getWinner(choice_1, choice_2);
         if (game_outcome==1){
                 wins_1 += 1
@@ -68,19 +69,21 @@ function runGames(func1, func2, games){
         else if (game_outcome==2){
                 wins_2 += 1
         }
+        
         let game_count = 0;
-        //Remaining games
+        //Loop through remaining games
         for (let i = 0; i < games; i++){
                 // Log the overall game count
-                
                 if (sessionStorage.getItem(`games`)){
                         game_count = JSON.parse(sessionStorage.getItem(`games`));
                 }
                 game_count = game_count + 1;
                 sessionStorage.setItem(`games`, JSON.stringify(game_count));
                 
+                //Placeholders for previous choices
                 choice_2_old = choice_2;
                 choice_1_old = choice_1;
+        
                 switch(func1){
                         case "Balboa-Bot":
                                 choice_1=balboaBot(choice_2_old);
@@ -103,9 +106,6 @@ function runGames(func1, func2, games){
                                 choice_2=wackyBot(choice_1_old);
                                 break;
                 }
-                
-                
-
                 game_outcome = getWinner(choice_1, choice_2);
                 if (game_outcome==1){
                         wins_1 += 1
