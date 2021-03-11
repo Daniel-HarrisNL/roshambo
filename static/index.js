@@ -1,5 +1,5 @@
 function main(){
-        let tournament_contenders = ["dummyBot","beginnerBot","adeptBot"];
+        let tournament_contenders = ["Balboa-Bot","Easy-Bot","Wacky-Bot"];
         
         let tournament_button = document.querySelector("#tournament");
         tournament_button.addEventListener("click", function(event){
@@ -38,25 +38,25 @@ function runGames(func1, func2, games){
         let game_outcome = -1;
         //First game
         switch(func1){
-                case "dummyBot":
-                        choice_1=dummyBot("");
+                case "Balboa-Bot":
+                        choice_1=balboaBot("");
                         break;
-                case "beginnerBot":
-                        choice_1=beginnerBot("");
+                case "Easy-Bot":
+                        choice_1=easyBot("");
                         break;
-                case "adeptBot":
-                        choice_1=adeptBot("");
+                case "Wacky-Bot":
+                        choice_1=wackyBot("");
                         break;
         }
         switch(func2){
-                case "dummyBot":
-                        choice_2=dummyBot("");
+                case "Balboa-Bot":
+                        choice_2=balboaBot("");
                         break;
-                case "beginnerBot":
-                        choice_2=beginnerBot("");
+                case "Easy-Bot":
+                        choice_2=easyBot("");
                         break;
-                case "adeptBot":
-                        choice_2=adeptBot("");
+                case "Wacky-Bot":
+                        choice_2=wackyBot("");
                         break;
         }
        
@@ -82,25 +82,25 @@ function runGames(func1, func2, games){
                 choice_2_old = choice_2;
                 choice_1_old = choice_1;
                 switch(func1){
-                        case "dummyBot":
-                                choice_1=dummyBot(choice_2_old);
+                        case "Balboa-Bot":
+                                choice_1=balboaBot(choice_2_old);
                                 break;
-                        case "beginnerBot":
-                                choice_1=beginnerBot(choice_2_old);
+                        case "Easy-Bot":
+                                choice_1=easyBot(choice_2_old);
                                 break;
-                        case "adeptBot":
-                                choice_1=adeptBot(choice_2_old);
+                        case "Wacky-Bot":
+                                choice_1=wackyBot(choice_2_old);
                                 break;
                 }
                 switch(func2){
-                        case "dummyBot":
-                                choice_2=dummyBot(choice_1_old);
+                        case "Balboa-Bot":
+                                choice_2=balboaBot(choice_1_old);
                                 break;
-                        case "beginnerBot":
-                                choice_2=beginnerBot(choice_1_old);
+                        case "Easy-Bot":
+                                choice_2=easyBot(choice_1_old);
                                 break;
-                        case "adeptBot":
-                                choice_2=adeptBot(choice_1_old);
+                        case "Wacky-Bot":
+                                choice_2=wackyBot(choice_1_old);
                                 break;
                 }
                 
@@ -214,12 +214,12 @@ function displayResults(results,tournament_contenders){
 }
 
 // User Functions
-function dummyBot(previous){
+function balboaBot(previous){
         //Creator: Daniel Harris, Daniel.Harris@keyin.com
         return "rock";
 }
 
-function beginnerBot(previous){
+function easyBot(previous){
         //Creator: Daniel Harris, Daniel.Harris@keyin.com
         let choice = Math.random();
         let return_move = "";
@@ -236,7 +236,7 @@ function beginnerBot(previous){
         return return_move;
 }
 
-function adeptBot(previous){
+function wackyBot(previous){
         //Creator: Daniel Harris, Daniel.Harris@keyin.com
         let choice = Math.random();
         let return_move = "";

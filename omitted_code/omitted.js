@@ -54,3 +54,54 @@ function parseFunctions(tournament_contenders){
 
         return function_array_parsed;
 }
+
+let html_string = `<!-- <tr>
+<td id="winner"><em>Undefined</em></td>
+<td id="e1"><em>Undefined</em></td>
+<td id="e2"><em>Undefined</em></td>
+
+</tr>
+<tr>
+<td id="e3"><em>Undefined</em></td>
+<td id="e4"><em>Undefined</em></td>
+<td id="e5"><em>Undefined</em></td>
+
+</tr>
+<tr>
+<td id="e6"><em>Undefined</em></td>
+<td id="e7"><em>Undefined</em></td>
+<td id="e8"><em>Undefined</em></td>
+
+
+</tr>
+<tr>
+<td id="e9"><em>Undefined</em></td>
+<td id="e10"><em>Undefined</em></td>
+<td id="e11"><em>Undefined</em></td>
+
+</tr>
+<tr>
+<td id="e12"><em>Undefined</em></td>
+<td id="e13"><em>Undefined</em></td>
+<td id="e14"><em>Undefined</em></td>
+
+</tr>
+<tr>
+<td><em>Undefined</em></td>
+<td><em>Undefined</em></td>
+<td><em>Undefined</em></td>
+
+</tr>
+<tr>
+<td><em>Undefined</em></td>
+<td><em>Undefined</em></td>
+<td><em>Undefined</em></td>
+
+</tr> -->
+
+
+/* .header-wrapper{
+        display: flex;
+        flex-direction: column;
+        height: 174px;
+} */`;
